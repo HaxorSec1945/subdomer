@@ -1,5 +1,5 @@
 # Subdomer (Subdomain Scanner)
-![alt text](raw.githubusercontent.com/mrcakil/subdomer/main/subdo.png)
+![alt text](https://raw.githubusercontent.com/mrcakil/subdomer/main/subdo.png)
 
 ## Linux :
 ### Requirements :  Curl,sort
