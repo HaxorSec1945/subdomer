@@ -15,5 +15,5 @@ root@Mrcakil:~#bash subbdomer list-here.txt threads-here
 ```
 root@Mrcakil:~#bash subbdomer list-here.txt threads-here
 ```
-#### Enjoy
 ### Bug ? Please Report issue or contact : mrcakil@programmer.net
+### Donate or Order Bot ? Please Contact Me : https://facebook.com/dendisaimam.dendisaimam.1
