@@ -8,7 +8,7 @@
 root@Mrcakil:~#bash subbdomer list-here.txt threads-here
 ```
 
-## Windows
+## Windows :
 ### Requirements :  Curl,sort
 #### Warning : Please Installing GNUWin32 and Move Sort File to Folder Bot
 ### Example Run : 
