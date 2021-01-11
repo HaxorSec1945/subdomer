@@ -1,0 +1,51 @@
+#!/bin/bash
+blue='\e[0;34'
+cyan='\e[0;36m'
+green='\e[0;34m'
+okegreen='\033[92m'
+lightgreen='\e[1;32m'
+white='\e[1;37m'
+red='\e[1;31m'
+yellow='\e[1;33m'
+
+THREADS=$2
+CON=$((COUNTER+1))
+
+checker(){
+scan=$(curl -s "https://sonar.omnisint.io/subdomains/$target")
+p=$(echo "$scan" | grep -oP '"(.*?)"' | cut -d '"' -f2)
+if [[ $scan =~ 'null' ]];
+then
+echo -e "$red[+] $target => No Subdomain"
+else
+r=$(echo "$p" | wc -l)
+echo "$p" >> resultsubdo.txt
+echo -e "$okegreen[+] $target => $r"
+fi
+}
+
+banner(){
+echo -e $yellow"====================================="
+echo -e $yellow"       Mass Subdomain Scanner        "
+echo -e $yellow"       Copyright Mrcakil@2020        "
+echo -e $yellow"====================================="
+}
+banner
+
+
+for target in $(cat $1);
+        do
+         FAST=$(expr $CON % $THREADS)
+         if [[ $FAST == 0 && $CON > 0 ]];
+         then
+         sleep 2
+         fi
+      checker &
+      CON=$[$CON+1]
+done
+wait
+total=$(cat resultsubdo.txt | wc -l)
+sor=$(cat resultsubdo.txt | sort -u >> sorted.txt)
+tod=$(cat sorted.txt | wc -l)
+echo "Total : $total"
+echo "Sorted : $tod"
